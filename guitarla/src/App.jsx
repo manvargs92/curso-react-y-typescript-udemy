@@ -9,6 +9,13 @@ function App() {
   // State
   const[auth, setAuth] = useState(false); // definir el Estado, en este caso se llama auth; para modificarlo es setAuth; valor inicial false
   console.log(auth); // se puede ve igualmente con la extensión de navegador React Developer Tools
+
+  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useState([]);
+  /* Reglas de los Hooks
+  * 1. Los Hooks se colocan en la parte superior de los componentes de React
+  * 2. No se deben colocar dentro de condicionales, dentro de funciones, tampoco después de un return
+  */
   
   
   return (
