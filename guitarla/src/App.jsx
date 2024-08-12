@@ -1,9 +1,14 @@
 /**** El App.jsx es el componente principal de la aplicación ****/
 
+import Header from "./components/Header"; // importar un componente
+
 function App() {
   
   return (
     <>
+
+      <Header /> {/* renderizar un componente */}
+
       <header class="py-5 header">
           <div class="container-xl">
               <div class="row justify-content-center justify-content-md-between">
