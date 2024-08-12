@@ -2,8 +2,14 @@
 
 import Header from "./components/Header"; // importar un componente
 import Gitar from "./components/Guitar";
+import { useState } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
 
 function App() {
+
+  // State
+  const[auth, setAuth] = useState(false); // definir el Estado, en este caso se llama auth; para modificarlo es setAuth; valor inicial false
+  console.log(auth); // se puede ve igualmente con la extensión de navegador React Developer Tools
+  
   
   return (
     <>
