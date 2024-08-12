@@ -1,8 +1,14 @@
+import { Fragment } from 'react';
 
 function Header() {
 
+    const total = 100;
+
     return (
-        <h1>Desde Header y actualizar</h1>
+        <Fragment> {/* fragments: rodear el html con una etiqueta padre y evitar crear divs inecesarios */}
+            <p>Total a pagar: { total }</p>
+            <p>Después</p>
+        </Fragment>
     );
 
 }
