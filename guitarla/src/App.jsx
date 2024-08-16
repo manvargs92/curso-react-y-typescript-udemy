@@ -2,7 +2,7 @@
 
 import Header from "./components/Header"; // importar un componente
 import Gitar from "./components/Guitar";
-import { useState } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
+import { useState, useEffect } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
 
 function App() {
 
@@ -12,6 +12,13 @@ function App() {
 
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
+
+  // Effect
+  useEffect(() => {
+    console.log('Componente listo o escuchando por Auth');
+    
+  }, [auth]); // después de la coma van las dependencias dentro de un arreglo
+
   /* Reglas de los Hooks
   * 1. Los Hooks se colocan en la parte superior de los componentes de React
   * 2. No se deben colocar dentro de condicionales, dentro de funciones, tampoco después de un return
