@@ -44,12 +44,11 @@ function App() {
 
           <div className="row mt-5">
 
-            <Gitar />
-            <Gitar />
-            <Gitar />
-            <Gitar />
-            <Gitar />
-            <Gitar />
+            {/* expresiones */
+              data.map(() => (
+                <Gitar />
+              ))
+            }
 
           </div>
       </main>
