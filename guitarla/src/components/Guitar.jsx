@@ -3,6 +3,8 @@ function Gitar({ guitar, auth }) { // usando destructuring
 
     const { id, name, image, description, price } = guitar; // aplicando destructuring a guitar
 
+    const handleClick = (id) => console.log('Diste Click...', id);    
+
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
                     <div className="col-4">
@@ -17,6 +19,8 @@ function Gitar({ guitar, auth }) { // usando destructuring
                         <button 
                             type="button"
                             className="btn btn-dark w-100"
+                            /* Eventos en JSX */
+                            onClick={ () => handleClick(guitar) } // () => cuando se le pasan argumentos a los eventos deben llevar un callback para evitar que se mande a llamar la función automáticamente
                         >Agregar al Carrito</button>
                     </div>
                 </div>
