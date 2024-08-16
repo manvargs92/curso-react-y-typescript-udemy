@@ -3,6 +3,7 @@
 import Header from "./components/Header"; // importar un componente
 import Gitar from "./components/Guitar";
 import { useState, useEffect } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
+import { db } from './data/db';
 
 function App() {
 
@@ -24,6 +25,14 @@ function App() {
   * 2. No se deben colocar dentro de condicionales, dentro de funciones, tampoco después de un return
   */
   
+  /* cargar los datos de las guitarras usando un archivo de datos local */
+  const [data, setData] = useState(db); // su valor inicial será lo que haya en db
+  
+  /* cargar los datos de las guitarras usando una API de datos */
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   setData(db);
+  // }, []);
   
   return (
     <>
