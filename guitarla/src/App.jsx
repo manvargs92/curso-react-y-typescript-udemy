@@ -46,7 +46,11 @@ function App() {
 
             {/* expresiones */
               data.map(() => (
-                <Gitar />
+                <Gitar 
+                  price={100}
+                  auth={true}
+                
+                />
               ))
             }
 
