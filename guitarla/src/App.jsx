@@ -44,12 +44,17 @@ function App() {
 
           <div className="row mt-5">
 
+            {/* Props
+            * Sirven para que se comuniquen los componentes entre ellos.
+            * Se pasa información de un componente padre a un componente hijo, pero no al revés
+            * Se parecen a los atributos en HTML, pero se les puede pasar arrays, objetos o funciones
+            */}
             {/* expresiones */
-              data.map(() => (
+              data.map((guitar) => (
                 <Gitar 
-                  price={100}
-                  auth={true}
-                
+                  key={ guitar.id } // prop necesario cuando se utilice .map, define las llaves únicas de los valores
+                  guitar={ guitar }
+                  auth={true}                
                 />
               ))
             }
