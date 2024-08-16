@@ -1,9 +1,13 @@
 // function Gitar(props) { // props - palabra reservada de React, existe allí ya sea que se le pasen información a los componentes
-function Gitar({ guitar, auth }) { // usando destructuring
+function Gitar({ guitar, setCart, cart, auth }) { // usando destructuring
 
     const { id, name, image, description, price } = guitar; // aplicando destructuring a guitar
 
-    const handleClick = (id) => console.log('Diste Click...', id);    
+    /* Modificando el estate de Carrito */
+    // la peor forma
+    const handleClick = (guitar) => {
+        setCart([...cart, guitar]); // se puede pasar directo en el evento onClick sin utilizar la fucnión handleClick
+    };    
 
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
@@ -21,6 +25,7 @@ function Gitar({ guitar, auth }) { // usando destructuring
                             className="btn btn-dark w-100"
                             /* Eventos en JSX */
                             onClick={ () => handleClick(guitar) } // () => cuando se le pasan argumentos a los eventos deben llevar un callback para evitar que se mande a llamar la función automáticamente
+                            // onClick={ () => setCart(prevCart => [...cart, guitar]) } // el state del Carrito se pasa en automático en el callback (prevCartpo) sin tener que pasar cart en el prop
                         >Agregar al Carrito</button>
                     </div>
                 </div>

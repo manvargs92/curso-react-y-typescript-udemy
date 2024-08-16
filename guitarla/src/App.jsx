@@ -54,6 +54,8 @@ function App() {
                 <Gitar 
                   key={ guitar.id } // prop necesario cuando se utilice .map, define las llaves únicas de los valores
                   guitar={ guitar }
+                  cart={ cart }
+                  setCart={ setCart }
                   auth={true}                
                 />
               ))
