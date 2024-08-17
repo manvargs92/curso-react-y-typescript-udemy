@@ -14,6 +14,8 @@ function App() {
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
 
+  const MAX_ITEMS = 5;
+  const MIN_ITEMS = 1;
 
   // Effect
   useEffect(() => {
@@ -43,10 +45,11 @@ function App() {
     
     // incrementar la cantidad si un artículo ya se encuentra agregado al carrito
     if (itemExist >= 0) { // el elemento existe en el carrito
+      if (cart[itemExist].quantity >= MAX_ITEMS) return; // evitar que se agreguen más elementos de la máxima cantidad permitida al carrito haciendo clic en el botón "AGREGAR AL CARRITO"
       console.log('Ya existe.');
-      const updtedCart = [...cart]; // creamos una copia del carrito para no mutar el state
-      updtedCart[itemExist].quantity++;
-      setCart(updtedCart);
+      const updatedCart = [...cart]; // creamos una copia del carrito para no mutar el state
+      updatedCart[itemExist].quantity++;
+      setCart(updatedCart);
     } else {
       console.log('No existe... agregando...');
       item.quantity = 1; // gregando una nueva propiedad al objeto item, la cantidad de 1
@@ -62,6 +65,40 @@ function App() {
     setCart(prepCart => prepCart.filter(guitar => guitar.id !== id))
   }
 
+  // incrementar la cantidad de elementos
+  function increaseQuantity(id) {
+    console.log('Incrementando... ', id);
+    const updatedCart = cart.map(item => {
+      if (item.id === id && item.quantity < MAX_ITEMS) {
+        return {
+          ...item, // se retorna todo como está
+          quantity: item.quantity + 1 // pero la cantidad se incrementa en 1
+        }
+      }
+
+      return item; // para mantener el resto de los elementos a los cuales no se da clic en incrementar la cantidad
+    });
+
+    setCart(updatedCart); // se setea el carrito con el contenido de updatedCart
+  }
+
+  // decrementar la cantidad de elementos
+  function decreaseQuantity(id) {
+    console.log("decrementando ... ", id);
+    const updatedCart = cart.map(item => {
+      if (item.id === id && item.quantity > MIN_ITEMS) {
+        return {
+          ...item,
+          quantity: item.quantity - 1
+        }
+      }
+
+      return item;
+    });    
+
+    setCart(updatedCart);
+  }
+
   return (
     <>
 
@@ -70,6 +107,8 @@ function App() {
         // el key se agrega en la etiqueta <tr> en el Header.jsx
         cart={ cart }
         removeFromCart={ removeFromCart }
+        increaseQuantity={ increaseQuantity }
+        decreaseQuantity={ decreaseQuantity }
       />
 
       <main className="container-xl mt-5"> {/* cambiamos class por className para evitar choques entre la intaxis de HTML y JS */}

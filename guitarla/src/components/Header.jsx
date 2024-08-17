@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 
-function Header({ cart, removeFromCart }) {
+function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity }) {
 
     const total = 100;
 
@@ -64,6 +64,7 @@ function Header({ cart, removeFromCart }) {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={() => decreaseQuantity(guitar.id)}
                                                                 >
                                                                     -
                                                                 </button>
@@ -71,6 +72,7 @@ function Header({ cart, removeFromCart }) {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={ () => increaseQuantity(guitar.id) }
                                                                 >
                                                                     +
                                                                 </button>
