@@ -40,8 +40,12 @@ function App() {
 
     const itemExist = cart.findIndex((tempGuitar) => tempGuitar.id === item.id); // detecta si existe o no un elemento en el carrito
     
+    // incrementar la cantidad si un artículo ya se encuentra agregado al carrito
     if (itemExist >= 0) { // el elemento existe en el carrito
       console.log('Ya existe.');
+      const updtedCart = [...cart]; // creamos una copia del carrito para no mutar el state
+      updtedCart[itemExist].quantity++;
+      setCart(updtedCart);
     } else {
       console.log('No existe... agregando...');
       item.quantity = 1; // gregando una nueva propiedad al objeto item, la cantidad de 1
