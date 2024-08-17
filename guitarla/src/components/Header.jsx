@@ -4,6 +4,9 @@ function Header({ cart }) {
 
     const total = 100;
 
+    // State derivado
+    const isEmpty = () => cart.length === 0;
+
     return (
         <Fragment> {/* fragments: rodear el html con una etiqueta padre y evitar crear divs inecesarios */}
 
@@ -24,7 +27,7 @@ function Header({ cart }) {
                                     <div id="carrito" className="bg-white p-3">
                                         
                                         {/* Verificar si el carrito está vacío, mostrará el mensaje "El carrito esta vacio", si no, mostrará el contenido */}
-                                        { cart.length === 0 ? (
+                                        { isEmpty() ? (
 
                                             <p className="text-center">El carrito esta vacio</p>
 
