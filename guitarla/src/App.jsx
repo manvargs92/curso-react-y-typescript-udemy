@@ -58,7 +58,11 @@ function App() {
   return (
     <>
 
-      <Header /> {/* renderizar un componente */}
+      {/* renderizar un componente */}
+      <Header 
+        // el key se agrega en la etiqueta <tr> en el Header.jsx
+        cart={ cart }
+      />
 
       <main className="container-xl mt-5"> {/* cambiamos class por className para evitar choques entre la intaxis de HTML y JS */}
           <h2 className="text-center">Nuestra Colección</h2>
