@@ -34,6 +34,16 @@ function App() {
   //   setData(db);
   // }, []);
   
+  // escribir elemento en el carrito de compras con validación de cantidad
+  function addToCart(item) {
+    console.log('agregando...');
+
+    const itemExist = cart.findIndex((tempGuitar) => tempGuitar.id === item.id); // detecta si existe o no un elemento en el carrito
+    console.log(itemExist);
+    
+    setCart(prevCart => [...prevCart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+  }
+
   return (
     <>
 
@@ -56,6 +66,7 @@ function App() {
                   guitar={ guitar }
                   cart={ cart }
                   setCart={ setCart }
+                  addToCart={ addToCart }
                   auth={true}                
                 />
               ))
