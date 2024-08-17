@@ -7,12 +7,19 @@ import { db } from './data/db';
 
 function App() {
 
+  // revisar si hay algo en el local storage, si hay algo, se convierte en un arreglo, y si no, inicia con un arreglo vacío
+  const initialCart = () => {
+    const localStorageCart = localStorage.getItem('cart');
+    return localStorageCart ? JSON.parse(localStorageCart) : [];
+  }
+
   // State
   const[auth, setAuth] = useState(false); // definir el Estado, en este caso se llama auth; para modificarlo es setAuth; valor inicial false
   console.log(auth); // se puede ve igualmente con la extensión de navegador React Developer Tools
 
   const [total, setTotal] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(initialCart); // iniciar con el localStorage
+  // const [cart, setCart] = useState([]); // iniciar con un arreglo vacío
 
   const MAX_ITEMS = 5;
   const MIN_ITEMS = 1;
