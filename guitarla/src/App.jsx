@@ -17,6 +17,11 @@ function App() {
   const MAX_ITEMS = 5;
   const MIN_ITEMS = 1;
 
+  // guardar el carrito en el local storage con un hook ya que el state de React es asíncrono y con el hook, React se encarga de sincronizarlo
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart)) // guarda el carrito en local storage; (identificador, lo que deseas almacenar pero como un String)
+  }, [cart]);
+
   // Effect
   useEffect(() => {
     console.log('Componente listo o escuchando por Auth');
@@ -56,7 +61,6 @@ function App() {
       setCart([...cart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
       // setCart(prevCart => [...prevCart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
     }
-    
   }
 
   // eliminar los elementos del carrito
