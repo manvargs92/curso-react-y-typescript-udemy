@@ -39,9 +39,16 @@ function App() {
     console.log('agregando...');
 
     const itemExist = cart.findIndex((tempGuitar) => tempGuitar.id === item.id); // detecta si existe o no un elemento en el carrito
-    console.log(itemExist);
     
-    setCart(prevCart => [...prevCart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+    if (itemExist >= 0) { // el elemento existe en el carrito
+      console.log('Ya existe.');
+    } else {
+      console.log('No existe... agregando...');
+      item.quantity = 1; // gregando una nueva propiedad al objeto item, la cantidad de 1
+      setCart([...cart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+      // setCart(prevCart => [...prevCart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+    }
+    
   }
 
   return (
