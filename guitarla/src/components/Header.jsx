@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 
-function Header({ cart }) {
+function Header({ cart, removeFromCart }) {
 
     const total = 100;
 
@@ -79,6 +79,7 @@ function Header({ cart }) {
                                                                 <button
                                                                     className="btn btn-danger"
                                                                     type="button"
+                                                                    onClick={ () => removeFromCart(guitar.id) }
                                                                 >
                                                                     X
                                                                 </button>

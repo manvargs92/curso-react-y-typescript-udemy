@@ -14,6 +14,7 @@ function App() {
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
 
+
   // Effect
   useEffect(() => {
     console.log('Componente listo o escuchando por Auth');
@@ -55,6 +56,12 @@ function App() {
     
   }
 
+  // eliminar los elementos del carrito
+  function removeFromCart(id) {
+    console.log('Eliminando... ', id);
+    setCart(prepCart => prepCart.filter(guitar => guitar.id !== id))
+  }
+
   return (
     <>
 
@@ -62,6 +69,7 @@ function App() {
       <Header 
         // el key se agrega en la etiqueta <tr> en el Header.jsx
         cart={ cart }
+        removeFromCart={ removeFromCart }
       />
 
       <main className="container-xl mt-5"> {/* cambiamos class por className para evitar choques entre la intaxis de HTML y JS */}
