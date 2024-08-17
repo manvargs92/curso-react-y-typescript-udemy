@@ -1,11 +1,12 @@
 import { Fragment } from 'react';
+import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 
 function Header({ cart }) {
 
     const total = 100;
 
     // State derivado
-    const isEmpty = () => cart.length === 0;
+    const isEmpty = useMemo( () => cart.length === 0, [cart] ); // useMemo - no hagas el render completo de la aplicación hasta que cambie el state de [cart]
     // calcular el total a pagar
     const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
 
@@ -29,8 +30,9 @@ function Header({ cart }) {
                                     <div id="carrito" className="bg-white p-3">
                                         
                                         {/* Verificar si el carrito está vacío, mostrará el mensaje "El carrito esta vacio", si no, mostrará el contenido */}
-                                        { isEmpty() ? (
-
+                                        { //isEmpty() ? (
+                                        isEmpty ? ( // isEmpty deja de ser una fucnión gracias a useMemo
+                                            
                                             <p className="text-center">El carrito esta vacio</p>
 
                                         ) : (
