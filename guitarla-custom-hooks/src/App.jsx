@@ -5,7 +5,11 @@ import Gitar from "./components/Guitar";
 import { useState, useEffect } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
 import { db } from './data/db';
 
+import useCart from "./hooks/useCart"; // importar un Custom Hook
+
 function App() {
+
+  useCart(); // llamando al Custom Hook
 
   // revisar si hay algo en el local storage, si hay algo, se convierte en un arreglo, y si no, inicia con un arreglo vacío
   const initialCart = () => {
