@@ -9,7 +9,10 @@ import useCart from "./hooks/useCart"; // importar un Custom Hook
 
 function App() {
 
-  useCart(); // llamando al Custom Hook
+  const { auth, carrito } = useCart(); // llamando al Custom Hook
+  console.log(auth);
+  console.log(carrito);
+  
 
   // revisar si hay algo en el local storage, si hay algo, se convierte en un arreglo, y si no, inicia con un arreglo vacío
   const initialCart = () => {
@@ -18,8 +21,8 @@ function App() {
   }
 
   // State
-  const[auth, setAuth] = useState(false); // definir el Estado, en este caso se llama auth; para modificarlo es setAuth; valor inicial false
-  console.log(auth); // se puede ve igualmente con la extensión de navegador React Developer Tools
+  // const[auth, setAuth] = useState(false); // definir el Estado, en este caso se llama auth; para modificarlo es setAuth; valor inicial false
+  // console.log(auth); // se puede ve igualmente con la extensión de navegador React Developer Tools
 
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState(initialCart); // iniciar con el localStorage
@@ -34,10 +37,10 @@ function App() {
   }, [cart]);
 
   // Effect
-  useEffect(() => {
-    console.log('Componente listo o escuchando por Auth');
+  // useEffect(() => {
+  //   console.log('Componente listo o escuchando por Auth');
     
-  }, [auth]); // después de la coma van las dependencias dentro de un arreglo
+  // }, [auth]); // después de la coma van las dependencias dentro de un arreglo
 
   /* Reglas de los Hooks
   * 1. Los Hooks se colocan en la parte superior de los componentes de React

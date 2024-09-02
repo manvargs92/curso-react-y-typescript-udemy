@@ -5,8 +5,13 @@
 
 function useCart() {
 
-    console.log("Desde useCart");    
+    const auth = true;
+    const carrito = [];
 
+    return { // se recomienda que el return devuelva un objeto
+        auth,
+        carrito
+    }
 }
 
 export default useCart;
