@@ -3,8 +3,10 @@
  * El tipo es .js ya que un custom hook solo debe llevar lógicay no un tamplate como tienen losarchivos .jsx
  * **/
 
-import { useState, useEffect } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
+import { useState, useEffect, useMemo } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
+// import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 import { db } from '../data/db';
+
 
 function useCart() {
 
@@ -117,6 +119,12 @@ function useCart() {
     }
 
 
+    // State derivado
+    const isEmpty = useMemo( () => cart.length === 0, [cart] ); // useMemo - no hagas el render completo de la aplicación hasta que cambie el state de [cart]
+    // calcular el total a pagar
+    const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+
+
     return { // se recomienda que el return devuelva un objeto
         data,
         cart,
@@ -124,7 +132,9 @@ function useCart() {
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
-        clearCart
+        clearCart,
+        isEmpty,
+        cartTotal
     }
 }
 

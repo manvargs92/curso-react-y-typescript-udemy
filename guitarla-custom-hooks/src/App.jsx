@@ -7,7 +7,7 @@ import useCart from "./hooks/useCart"; // importar un Custom Hook
 
 function App() {
 
-  const { data, cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = useCart(); // llamando al Custom Hook
+  const { data, cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal } = useCart(); // llamando al Custom Hook
 
   return (
     <>
@@ -20,6 +20,8 @@ function App() {
         increaseQuantity={ increaseQuantity }
         decreaseQuantity={ decreaseQuantity }
         clearCart={ clearCart }
+        isEmpty={ isEmpty }
+        cartTotal={ cartTotal }
       />
 
       <main className="container-xl mt-5"> {/* cambiamos class por className para evitar choques entre la intaxis de HTML y JS */}

@@ -1,14 +1,8 @@
 import { Fragment } from 'react';
-import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 
-function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }) {
+import useCart from '../hooks/useCart';
 
-    const total = 100;
-
-    // State derivado
-    const isEmpty = useMemo( () => cart.length === 0, [cart] ); // useMemo - no hagas el render completo de la aplicación hasta que cambie el state de [cart]
-    // calcular el total a pagar
-    const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal }) {
 
     return (
         <Fragment> {/* fragments: rodear el html con una etiqueta padre y evitar crear divs inecesarios */}
