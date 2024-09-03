@@ -1,10 +1,12 @@
-type TGuitar = {
-    id : number;
-    name : string;
-    image : string;
-    description : string;
-    price : number;
-}
+import type { TGuitar } from '../types/types.ts' // usar types desde archivo especial para types
+
+// type TGuitar = {
+//     id : number;
+//     name : string;
+//     image : string;
+//     description : string;
+//     price : number;
+// }
 
 type TGuitarProps = {
     guitar : TGuitar,

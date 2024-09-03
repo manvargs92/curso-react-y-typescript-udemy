@@ -1,13 +1,14 @@
 // https://gist.githubusercontent.com/codigoconjuan/f333ee8422b0b8c4fde227e81e626cce/raw/47a5e57d4440b6458d28c3fb77b5c4c697f75723/db.js
 
-// usando types en TypeScript
-type TGuitar = {
-    id : number;
-    name : string;
-    image : string;
-    description : string;
-    price : number;
-}
+import type { TGuitar } from '../types/types.ts' // usar types desde archivo especial para types
+// usando types en TypeScript (en el mismo archivo)
+// type TGuitar = {
+//     id : number;
+//     name : string;
+//     image : string;
+//     description : string;
+//     price : number;
+// }
 
 // usando interfaces en TypeScript
 interface IGuitar {
