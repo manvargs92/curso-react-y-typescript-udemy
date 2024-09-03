@@ -6,7 +6,7 @@
 import { useState, useEffect, useMemo } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
 // import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 import { db } from '../data/db';
-import { TCardItem } from '../types/types';
+import { TGuitar, TCardItem } from '../types/types';
 
 
 function useCart() {
@@ -55,7 +55,7 @@ function useCart() {
     // }, []);
     
     // escribir elemento en el carrito de compras con validación de cantidad
-    function addToCart(item) {
+    function addToCart(item : TGuitar) {
         console.log('agregando...');
 
         const itemExist = cart.findIndex((tempGuitar) => tempGuitar.id === item.id); // detecta si existe o no un elemento en el carrito
@@ -69,8 +69,10 @@ function useCart() {
         setCart(updatedCart);
         } else {
         console.log('No existe... agregando...');
-        item.quantity = 1; // gregando una nueva propiedad al objeto item, la cantidad de 1
-        setCart([...cart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+        // item.quantity = 1; // gregando una nueva propiedad al objeto item, la cantidad de 1
+        // setCart([...cart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
+        const newItem : TCardItem = {...item, quantity: 1}
+        setCart([...cart, newItem]);
         // setCart(prevCart => [...prevCart, item]); // inmutabilidad del state, se hace una copia del state y se escribe el nuevo elemento que se está agregando al carrito
         }
     }
