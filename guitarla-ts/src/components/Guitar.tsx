@@ -6,9 +6,15 @@ type TGuitar = {
     price : number;
 }
 
+type TGuitarProps = {
+    guitar : TGuitar,
+    addToCart : (item: TGuitar) => void
+}
+
 // function Gitar(props) { // props - palabra reservada de React, existe allí ya sea que se le pasen información a los componentes
 // function Gitar({ guitar, setCart, cart, addToCart, auth }) { // usando destructuring
-function Gitar({ guitar, addToCart } : {guitar : TGuitar, addToCart : (item: TGuitar) => void}) { // asignar types inline a los props
+// function Gitar({ guitar, addToCart } : {guitar : TGuitar, addToCart : (item: TGuitar) => void}) { // asignar types inline a los props
+function Gitar({ guitar, addToCart } : TGuitarProps) { // asignar types por separado a los props
 
     const { id, name, image, description, price } = guitar; // aplicando destructuring a guitar
 
