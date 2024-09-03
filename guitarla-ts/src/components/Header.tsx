@@ -1,8 +1,20 @@
+import type { TCardItem, TGuitar } from '../types/types';
+
+type THeaderProps = {
+    cart : TCardItem[];
+    removeFromCart : (id : TGuitar['id']) => void;
+    increaseQuantity : (id : TGuitar['id']) => void;
+    decreaseQuantity : (id : TGuitar['id']) => void;
+    clearCart : () => void;
+    isEmpty : boolean;
+    cartTotal : number;
+}
+
 import { Fragment } from 'react';
 
 import useCart from '../hooks/useCart';
 
-function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal }) {
+function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal } : THeaderProps) {
 
     return (
         <Fragment> {/* fragments: rodear el html con una etiqueta padre y evitar crear divs inecesarios */}
@@ -86,7 +98,7 @@ function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clea
                                                 </tbody>
                                             </table>
 
-                                            <p className="text-end">Total pagar: <span className="fw-bold">{ cartTotal() }</span></p>
+                                            <p className="text-end">Total pagar: <span className="fw-bold">{ cartTotal }</span></p>
                                             <button 
                                             className="btn btn-dark w-100 mt-3 p-2"
                                             onClick={clearCart}
