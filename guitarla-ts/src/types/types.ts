@@ -12,3 +12,9 @@ export type TGuitar = {
 export type TCardItem = TGuitar & { // hereda de TGuitar y agrega el campo quantity
     quantity: number;
 }
+
+// export type TGuitarId = {
+//     id: number;
+// }
+// export type TGuitarId = Pick<TGuitar, 'id'>;
+export type TGuitarId = TGuitar['id']; // LookUp

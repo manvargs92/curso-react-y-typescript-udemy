@@ -78,13 +78,15 @@ function useCart() {
     }
 
     // eliminar los elementos del carrito
-    function removeFromCart(id) {
+    // function removeFromCart(id) {
+    function removeFromCart(id : TGuitar['id']) {
         console.log('Eliminando... ', id);
         setCart(prepCart => prepCart.filter(guitar => guitar.id !== id))
     }
 
     // incrementar la cantidad de elementos
-    function increaseQuantity(id) {
+    // function increaseQuantity(id) {
+    function increaseQuantity(id : TGuitar['id']) {
         console.log('Incrementando... ', id);
         const updatedCart = cart.map(item => {
         if (item.id === id && item.quantity < MAX_ITEMS) {
@@ -101,7 +103,8 @@ function useCart() {
     }
 
     // decrementar la cantidad de elementos
-    function decreaseQuantity(id) {
+    // function decreaseQuantity(id) {
+    function decreaseQuantity(id : TGuitar['id']) {
         console.log("decrementando ... ", id);
         const updatedCart = cart.map(item => {
         if (item.id === id && item.quantity > MIN_ITEMS) {
