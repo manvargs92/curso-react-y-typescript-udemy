@@ -6,12 +6,14 @@
 import { useState, useEffect, useMemo } from 'react'; // importar el Hook de useState para trabajar con el Estado de la aplicación
 // import { useMemo } from 'react'; //para mejorar el performace de la aplicación
 import { db } from '../data/db';
+import { TCardItem } from '../types/types';
 
 
 function useCart() {
 
     // revisar si hay algo en el local storage, si hay algo, se convierte en un arreglo, y si no, inicia con un arreglo vacío
-    const initialCart = () => {
+    // const initialCart = () => {
+    const initialCart = () : TCardItem[] => { //asignando el type
         const localStorageCart = localStorage.getItem('cart');
         return localStorageCart ? JSON.parse(localStorageCart) : [];
     }
