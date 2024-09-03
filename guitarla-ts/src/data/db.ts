@@ -1,6 +1,24 @@
 // https://gist.githubusercontent.com/codigoconjuan/f333ee8422b0b8c4fde227e81e626cce/raw/47a5e57d4440b6458d28c3fb77b5c4c697f75723/db.js
 
-export const db = [
+// usando types en TypeScript
+type TGuitar = {
+    id : number;
+    name : string;
+    image : string;
+    description : string;
+    price : number;
+}
+
+// usando interfaces en TypeScript
+interface IGuitar {
+    id : number;
+    name : string;
+    image : string;
+    description : string;
+    price : number;
+}
+
+export const db : TGuitar[] = [
     {
         id: 1,
         name: 'Lukather',
