@@ -11,3 +11,4 @@ Curso: React y TypeScript, visto en Udemy
 - Gist DB - https://gist.githubusercontent.com/codigoconjuan/f333ee8422b0b8c4fde227e81e626cce/raw/47a5e57d4440b6458d28c3fb77b5c4c697f75723/db.js
 - Lista de los arraymethods que mutan o no el state - https://doesitmutate.xyz/
 - Hosting para desplegar aplicaciones desarrolladas con React - https://www.netlify.com/
+- Documentación de Utility Types - https://www.typescriptlang.org/docs/handbook/utility-types.html
