@@ -1,13 +1,22 @@
+type TGuitar = {
+    id : number;
+    name : string;
+    image : string;
+    description : string;
+    price : number;
+}
+
 // function Gitar(props) { // props - palabra reservada de React, existe allí ya sea que se le pasen información a los componentes
-function Gitar({ guitar, setCart, cart, addToCart, auth }) { // usando destructuring
+// function Gitar({ guitar, setCart, cart, addToCart, auth }) { // usando destructuring
+function Gitar({ guitar, addToCart } : {guitar : TGuitar, addToCart : (item: TGuitar) => void}) { // asignar types inline a los props
 
     const { id, name, image, description, price } = guitar; // aplicando destructuring a guitar
 
     /* Modificando el estate de Carrito */
     // la peor forma
-    const handleClick = (guitar) => {
-        setCart([...cart, guitar]); // se puede pasar directo en el evento onClick sin utilizar la fucnión handleClick
-    };    
+    // const handleClick = (guitar) => {
+    //     setCart([...cart, guitar]); // se puede pasar directo en el evento onClick sin utilizar la fucnión handleClick
+    // };    
 
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
