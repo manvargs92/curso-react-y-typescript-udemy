@@ -12,3 +12,5 @@ Curso: React y TypeScript, visto en Udemy
 - Lista de los arraymethods que mutan o no el state - https://doesitmutate.xyz/
 - Hosting para desplegar aplicaciones desarrolladas con React - https://www.netlify.com/
 - Documentación de Utility Types - https://www.typescriptlang.org/docs/handbook/utility-types.html
+- Tailwind CSS - https://tailwindcss.com/
+- Extensión para trabajar con Tailwind CSS en VS Code - Tailwind CSS Intellisense
