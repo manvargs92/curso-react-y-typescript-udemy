@@ -15,3 +15,5 @@ Curso: React y TypeScript, visto en Udemy
 - Documentación de Utility Types - https://www.typescriptlang.org/docs/handbook/utility-types.html
 - Tailwind CSS - https://tailwindcss.com/
 - Extensión para trabajar con Tailwind CSS en VS Code - Tailwind CSS Intellisense
+- Extensión de snippets para React - ES7+ React/Redux/React-Native snippets
+- Extensión de snippets para React - Simple React Snippets

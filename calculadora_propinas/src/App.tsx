@@ -1,9 +1,7 @@
+import MenuItem from "./components/MenuItem"
 import { menuItems } from "./data/db"
 
-function App() {
-
-  console.log(menuItems);
-  
+function App() {  
 
   return (
     <>
@@ -15,6 +13,13 @@ function App() {
         <div>
           <h2>Menú</h2>
 
+          {
+            menuItems.map(item => ( // map para renderizar el componente varias veces
+              <MenuItem
+                key={ item.id }
+              />
+            ))
+          }
         </div>
 
         <div>
