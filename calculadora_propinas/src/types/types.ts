@@ -3,3 +3,7 @@ export type TMenuItem = {
     name : string;
     price : number;
 }
+
+export type TOrderItem = TMenuItem & {
+    quantity : number;
+}
