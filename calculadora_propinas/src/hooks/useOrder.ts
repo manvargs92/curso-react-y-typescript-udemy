@@ -5,9 +5,12 @@ function useOrder() {
 
     const [order, setOrder] = useState<TOrderItem[]>([]); // asignación de type o un primitivo a un hook
 
-    return {
+    const addItem = () => console.log("Agregando...");
+    
 
-    }
+    return {
+        addItem
+    };
 
 }
 
